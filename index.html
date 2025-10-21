@@ -6,10 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mathtime</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png" />
 </head>
 
 <body class="dark-mode">
+   <button id="creditsButton" class="button" style="position: fixed; top: 10px; left: 10px; z-index: 1100; cursor: pointer; background-color: #4CAF50;">
+  Credits
+</button>
   <h1>Mathtime</h1>
   <p>A game site built by Derrick Richard</p>
 
@@ -48,12 +50,24 @@
     <iframe id="zoneFrame"></iframe>
   </div>
 
-   <button id="darkModeToggle">Toggle Dark Mode</button>
-  
+  <button id="darkModeToggle">Toggle Dark Mode</button>
+
+  <div id="creditsPopup" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  background: #222; color: white; border-radius: 8px; padding: 20px; width: 300px; max-width: 90vw; box-shadow: 0 0 15px rgba(0,0,0,0.7); z-index: 1200;">
+  <h2 style="margin-top:0;">Credits</h2>
+  <ul style="padding-left: 20px; margin-bottom: 20px;">
+    <li>Developer - Derrick Richard</li>
+  <li>
+  Comments - 
+  <a href="https://github.com/GM-Math" target="_blank">GM-Math</a>
+</li>
+  </ul>
+  <button id="closeCredits" style="padding: 6px 12px; background-color: #007bff; border: none; border-radius: 4px; color: white; cursor: pointer;">
+    Close
+  </button>
+</div>
+
   <script src="script.js"></script>
 </body>
 
-
 </html>
-
-
