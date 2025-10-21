@@ -192,3 +192,22 @@ darkModeToggle.addEventListener('click', () => {
 });
 
 listZones();
+
+const creditsButton = document.getElementById('creditsButton');
+const creditsPopup = document.getElementById('creditsPopup');
+const closeCredits = document.getElementById('closeCredits');
+
+creditsButton.addEventListener('click', () => {
+  creditsPopup.style.display = 'block';
+});
+
+closeCredits.addEventListener('click', () => {
+  creditsPopup.style.display = 'none';
+});
+
+// Optional: close popup on click outside it
+window.addEventListener('click', (e) => {
+  if (e.target === creditsPopup) {
+    creditsPopup.style.display = 'none';
+  }
+});
