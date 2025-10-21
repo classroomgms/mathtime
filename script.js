@@ -25,6 +25,7 @@ async function listZones() {
         openZone(zone);
       }
     }
+    displayGameOfTheDay();
   } catch (error) {
     container.innerHTML = `Error loading zones: ${error.message}`;
   }
@@ -57,15 +58,27 @@ function sortZones() {
   }
   zones.sort((a, b) => (a.id === -1 ? -1 : b.id === -1 ? 1 : 0));
   displayZones(zones);
+  displayGameOfTheDay();
 }
 
-function displayZones(zones) {
+function displayZones(zonesToDisplay) {
   container.innerHTML = "";
-  if (!zones.length) {
+  if (!zonesToDisplay.length) {
     container.innerHTML = "No zones found.";
     return;
   }
-  zones.forEach(file => {
+
+  // Insert Game of the Day container above zone items
+  const gameOfTheDayContainer = document.getElementById("gameOfTheDay");
+  if (!gameOfTheDayContainer) {
+    const gameDiv = document.createElement("div");
+    gameDiv.id = "gameOfTheDay";
+    gameDiv.style.marginBottom = "10px";
+    gameDiv.style.fontWeight = "bold";
+    container.parentNode.insertBefore(gameDiv, container);
+  }
+
+  zonesToDisplay.forEach(file => {
     const zoneItem = document.createElement("div");
     zoneItem.className = "zone-item";
     zoneItem.onclick = () => openZone(file);
@@ -84,7 +97,7 @@ function displayZones(zones) {
 
     container.appendChild(zoneItem);
   });
-  document.getElementById("zoneCount").textContent = `Zones Loaded: ${zones.length}`;
+  document.getElementById("zoneCount").textContent = `Total Games: ${zonesToDisplay.length}`;
 }
 
 function filterZones() {
@@ -111,6 +124,54 @@ function openZone(file) {
       document.getElementById('zoneId').textContent = file.id;
       zoneViewer.style.display = "block";
     }).catch(error => alert("Failed to load zone: " + error));
+  }
+}
+
+function openZoneById(id) {
+  const game = zones.find(g => g.id === id);
+  if (game) {
+    openZone(game);
+  }
+}
+
+function getGameOfTheDay() {
+  if (!zones || zones.length === 0) return null;
+  const now = new Date();
+  const seed = now.getFullYear() * 10000 + (now.getMonth() + 1) * 100 + now.getDate();
+  const index = seed % zones.length;
+  return zones[index];
+}
+
+function displayGameOfTheDay() {
+  const game = getGameOfTheDay();
+  const container = document.getElementById("container");
+  let existing = document.getElementById("gameOfTheDayCard");
+  if (existing) existing.remove();
+
+  if (game) {
+    const card = document.createElement("div");
+    card.id = "gameOfTheDayCard";
+    card.className = "zone-item";
+    card.style.margin = "0 auto 15px auto";
+    card.style.maxWidth = "200px";
+    card.style.cursor = "pointer";
+    card.onclick = () => openZone(game);
+
+    const img = document.createElement("img");
+    img.src = game.cover.replace("{COVER_URL}", coverURL).replace("{HTML_URL}", htmlURL);
+    card.appendChild(img);
+
+    const button = document.createElement("button");
+    button.textContent = `${game.name}`;
+    button.style.width = "100%";
+    button.style.textAlign = "center";
+    button.onclick = (e) => {
+      e.stopPropagation();
+      openZone(game);
+    };
+    card.appendChild(button);
+
+    container.parentNode.insertBefore(card, container);
   }
 }
 
@@ -192,4 +253,3 @@ darkModeToggle.addEventListener('click', () => {
 });
 
 listZones();
-
