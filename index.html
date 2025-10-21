@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mathtime</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="dark-mode">
+  <h1>Mathtime</h1>
+  <p>A game site built by Derrick Richard</p>
+
+  <input type="text" id="searchBar" placeholder="Search Games" onkeyup="filterZones()" />
+
+  <div id="topControls">
+    <div id="dataButtons">
+      <button onclick="saveData()">Save Data</button>
+      <button onclick="document.getElementById('file').click()">Load Data</button>
+      <p>Saving data will create a file with all of your save data. When pressing load data, select that file to use your game states.</p>
+      <input type="file" id="file" style="display:none" onchange="loadData(event)" />
+    </div>
+    <select id="sortOptions" onchange="sortZones()">
+      <option value="name">by Nameㅤ</option>
+      <option value="id">by Idㅤ</option>
+      <option value="popular">by Popularityㅤ</option>
+    </select>
+  </div>
+
+  <div class="zone-wrapper">
+    <div id="zoneCount" class="zone-count"></div>
+    <div id="container">Loading...</div>
+  </div>
+
+  <div id="zoneViewer" style="display:none;">
+    <div id="zoneInfo">
+      <div id="zoneTitle">
+        <span id="zoneName"></span> <span id="zoneId"></span>
+      </div>
+      <div id="controls">
+        <button onclick="closeZone()">Close</button>
+        <button onclick="fullscreenZone()">Fullscreen</button>
+        <button onclick="aboutBlank()">about:blank (Use if embed is broken.)</button>
+      </div>
+    </div>
+    <iframe id="zoneFrame"></iframe>
+  </div>
+
+  <button id="darkModeToggle">Toggle Dark Mode</button>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
