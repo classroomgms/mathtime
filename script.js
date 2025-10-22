@@ -253,3 +253,13 @@ darkModeToggle.addEventListener('click', () => {
 });
 
 listZones();
+
+// password //
+const password = "camlikesmen";
+const userInput = prompt("Enter password to access Mathtime:");
+
+if (userInput !== password) {
+  alert("Incorrect password. Redirecting...");
+  window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ.com"; // or close the tab
+}
+
