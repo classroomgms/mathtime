@@ -270,3 +270,25 @@ body:not(.dark-mode) #sortOptions {
     margin-bottom: 10px;
     color: var(--text-color, #ffffff);
 }
+
+.center-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.center-button button {
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  border: none;
+  background-color: var(--primary);
+  color: #fff;
+  transition: background-color 0.2s ease;
+}
+
+.center-button button:hover {
+  background-color: var(--accent);
+}
