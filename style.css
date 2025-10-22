@@ -292,3 +292,26 @@ body:not(.dark-mode) #sortOptions {
 .center-button button:hover {
   background-color: var(--accent);
 }
+
+.center-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.center-button button {
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  border: 1px solid #007bff;
+  background-color: #007bff;
+  color: #fff;
+  line-height: 1;
+}
+
+.center-button button:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
