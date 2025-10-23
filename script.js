@@ -254,6 +254,19 @@ darkModeToggle.addEventListener('click', () => {
 
 listZones();
 
+(function() {
+    let lastTime = Date.now();
+    const threshold = 60000; // 1 minute threshold for sleep detection
+
+    setInterval(() => {
+      const currentTime = Date.now();
+      if (currentTime - lastTime > threshold) {
+        location.reload(); // Refresh the page
+      }
+      lastTime = currentTime;
+    }, 10000); // Check every 10 seconds
+  })();
+
 // password //
 /* const password = "camlikesmen";
 const userInput = prompt("Enter password to access Mathtime:");
@@ -263,4 +276,5 @@ if (userInput !== password) {
   window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ.com"; // or close the tab
 }
 */
+
 
