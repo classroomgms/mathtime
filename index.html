@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mathtime</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png" />
+</head>
+
+<div id="passwordOverlay" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#111;z-index:9999;display:flex;flex-direction:column;justify-content:center;align-items:center;color:white;">
+  <h2>Enter Password to Access</h2>
+  <input type="password" id="passwordInput" placeholder="Password" style="padding:10px;font-size:16px;margin:10px;" />
+  <button onclick="checkPassword()" style="padding:10px 20px;font-size:16px;">Submit</button>
+  <p id="errorMsg" style="color:red;display:none;">Incorrect password. Try again.</p>
+</div>
+
+<body class="dark-mode">
+  <h1>Mathtime</h1>
+  <p>A game site built by Derrick Richard and genizy (Name Undisclosed)</p>
+  <!--
+  <p style="color: green;">Copyright claims have been taken down. This site will continue to stay up.</p>
+  -->
+  <p>Original site: gn-math.github.io</p>
+
+  <h2>Other Sites</h2>
+  <div class="center-button" style="margin-bottom:1rem;">
+  <button style="margin-right: 0.5rem;" onclick="window.open('https://classroomgms.github.io/Englishtime/','_blank')">
+    Englishtime
+  </button>
+  <button onclick="window.open('https://classroomgms.github.io/Historytime/','_blank')">
+    Historytime
+  </button>
+</div>
+
+  <input type="text" id="searchBar" placeholder="Search Games" onkeyup="filterZones()" />
+
+  <div id="topControls">
+    <div id="dataButtons">
+      <button onclick="saveData()">Save Data</button>
+      <button onclick="document.getElementById('file').click()">Load Data</button>
+      <p>Saving data will create a file with all of your save data. When pressing load data, select that file to use your game states.</p>
+      <input type="file" id="file" style="display:none" onchange="loadData(event)" />
+    </div>
+    <select id="sortOptions" onchange="sortZones()">
+      <option value="name">by Nameㅤ</option>
+      <option value="id">by Idㅤ</option>
+      <option value="popular">by Popularityㅤ</option>
+    </select>
+  </div>
+
+  <div class="zone-wrapper">
+    <div id="zoneCount" class="zone-count"></div>
+    <h2>Game Of The Day</h2>
+   <div id="gameOfTheDay" class="game-of-the-day" style="margin-bottom: 10px; font-weight: bold;"></div>
+   <div id="container">Loading...</div>
+  </div>
+
+  <div id="zoneViewer" style="display:none;">
+    <div id="zoneInfo">
+      <div id="zoneTitle">
+        <span id="zoneName"></span> <span id="zoneId"></span>
+      </div>
+      <div id="controls">
+        <button onclick="closeZone()">Close</button>
+        <button onclick="fullscreenZone()">Fullscreen</button>
+        <button onclick="aboutBlank()">about:blank (Use if embed is broken.)</button>
+      </div>
+    </div>
+    <iframe id="zoneFrame"></iframe>
+  </div>
+
+   <button id="darkModeToggle">Toggle Dark Mode</button>
+  
+  <script src="script.js?v=2"></script>
+</body>
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
