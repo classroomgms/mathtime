@@ -323,7 +323,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Prevent scrolling while overlay is active
-document.body.style.overflow = "hidden";
+// document.body.style.overflow = "hidden";
 
 // Secret key combo: hold 1 and 0 for 3 seconds
 let keysHeld = {};
@@ -391,6 +391,7 @@ document.addEventListener("keyup", (e) => {
     shiftTimer = null;
   }
 });
+
 
 
 
