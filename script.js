@@ -269,7 +269,7 @@ listZones();
 
 //           //
 
-  const correctPassword = "timesitesgranted"; // Change this to your desired password
+  const correctPassword = "password"; // Change this to your desired password
 let wrongAttempts = 0;
 const punishmentKey = "runawayPunishmentStart";
 
@@ -332,7 +332,7 @@ let holdTimer = null;
 document.addEventListener("keydown", (e) => {
   keysHeld[e.key] = true;
 
-  if (keysHeld["1"] && keysHeld["0"] && !holdTimer) {
+  if (keysHeld["a"] && keysHeld["l"] && !holdTimer) {
     holdTimer = setTimeout(() => {
       alert("Password is: " + correctPassword);
     }, 3000);
@@ -391,4 +391,5 @@ document.addEventListener("keyup", (e) => {
     shiftTimer = null;
   }
 });
+
 
