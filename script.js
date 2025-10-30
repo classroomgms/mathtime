@@ -393,5 +393,54 @@ document.addEventListener("keyup", (e) => {
 });
 
 
+// 🔒 Lockout logic
+const lockoutKey = "siteLockedUntil";
+const now = Date.now();
+const lockedUntil = localStorage.getItem(lockoutKey);
+
+// ⛔ If user is locked out
+if (lockedUntil && now < parseInt(lockedUntil)) {
+  document.body.innerHTML = `
+    <h1>Access Denied</h1>
+    <p>You are locked out until ${new Date(parseInt(lockedUntil)).toLocaleTimeString()}.</p>
+  `;
+}
+
+// 🧩 Secret key combo: Hold 1 + 0 for 5 seconds to unlock
+let keysPressed = {};
+let comboStartTime = null;
+const unlockDuration = 5000; // 5 seconds
+
+document.addEventListener("keydown", (e) => {
+  keysPressed[e.key] = true;
+
+  // 🔓 Unlock if holding 1 and 0 for 5 seconds
+  if (keysPressed["1"] && keysPressed["0"]) {
+    if (!comboStartTime) {
+      comboStartTime = Date.now();
+    } else {
+      const elapsed = Date.now() - comboStartTime;
+      if (elapsed >= unlockDuration) {
+        localStorage.removeItem(lockoutKey);
+        alert("🔓 Site unlocked!");
+        location.reload();
+      }
+    }
+  }
+
+  // 🔒 Lock if spacebar is pressed
+  if (e.key === " ") {
+    const oneHourFromNow = now + 60 * 60 * 1000;
+    localStorage.setItem(lockoutKey, oneHourFromNow.toString());
+    alert("⛔ Site locked for 1 hour!");
+    location.reload();
+  }
+});
+
+document.addEventListener("keyup", (e) => {
+  delete keysPressed[e.key];
+  comboStartTime = null;
+});
+
 
 
