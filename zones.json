@@ -1,11 +1,5 @@
 [
   {
-    "id": -1,
-    "name": "[!] SUGGEST GAMES .gg/D4c9VFYWyU",
-    "cover": "{COVER_URL}/dc.png",
-    "url": "https://discord.gg/D4c9VFYWyU"
-  },
-  {
     "id": 0,
     "name": "Bowmasters",
     "cover": "{COVER_URL}/0.png",
@@ -5252,45 +5246,34 @@
     "author": "scriptwelder",
     "authorLink": "https://scriptwelder.itch.io/waterworks"
   },
-  {
-    "id": 595,
-    "name": "Shapez.io",
-    "cover": "{COVER_URL}/595.png",
-    "url": "{HTML_URL}/595.html",
-    "author": "scriptwelder",
-    "authorLink": "https://scriptwelder.itch.io/waterworks"
-  },
-  {
-    "id": 596,
-    "name": "[!] COMMENTS",
-    "cover": "{COVER_URL}/596-uu.png",
-    "url": "{HTML_URL}/596-u.html",
-    "author": "gn-math",
-    "authorLink": "https://gn-math.github.io",
-    "featured": true,
-    "special": [
-      "tools"
-    ]
-  },
-  {
-    "id": 597,
-    "name": "Plants vs. Zombies 2 Gardenless",
-    "cover": "{COVER_URL}/597.png",
-    "url": "{HTML_URL}/597.html",
-    "author": "Gzh0821",
-    "authorLink": "https://pvzge.com/en/"
-  },
-  {
-    "id": 598,
-    "name": "Sonic.EXE",
-    "cover": "{COVER_URL}/598.png",
-    "url": "{HTML_URL}/598.html",
-    "author": " Cinossu",
-    "authorLink": "https://info.sonicretro.org/An_Ordinary_Sonic_ROM_Hack",
-    "special": [
-      "emulator"
-    ]
-  },
+ {
+  "id": 595,
+  "name": "Shapez.io",
+  "cover": "{COVER_URL}/595.png",
+  "url": "{HTML_URL}/595.html",
+  "author": "scriptwelder",
+  "authorLink": "https://scriptwelder.itch.io/waterworks"
+},
+{
+  "id": 597,
+  "name": "Plants vs. Zombies 2 Gardenless",
+  "cover": "{COVER_URL}/597.png",
+  "url": "{HTML_URL}/597.html",
+  "author": "Gzh0821",
+  "authorLink": "https://pvzge.com/en/"
+},
+{
+  "id": 598,
+  "name": "Sonic.EXE",
+  "cover": "{COVER_URL}/598.png",
+  "url": "{HTML_URL}/598.html",
+  "author": " Cinossu",
+  "authorLink": "https://info.sonicretro.org/An_Ordinary_Sonic_ROM_Hack",
+  "special": [
+    "emulator"
+  ]
+}
+
   {
     "id": 599,
     "name": "Metal Gear Solid",
