@@ -3,7 +3,7 @@ const zoneViewer = document.getElementById('zoneViewer');
 let zoneFrame = document.getElementById('zoneFrame');
 const searchBar = document.getElementById('searchBar');
 const sortOptions = document.getElementById('sortOptions');
-const zonesURL = './zones.json';
+const zonesURL = 'https://cdn.jsdelivr.net/gh/classroomgms/mathtime@main/zones.json';
 const coverURL = "https://cdn.jsdelivr.net/gh/gn-math/covers@main";
 const htmlURL = "https://cdn.jsdelivr.net/gh/gn-math/html@main";
 
@@ -266,6 +266,7 @@ listZones();
       lastTime = currentTime;
     }, 10000); // Check every 10 seconds
   })();
+
 
 
 
